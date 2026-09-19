@@ -1,0 +1,2196 @@
+{
+ "_readme": "Single source of truth for the coral reef. All coordinates are Stonefish world frame (NED: x north, y east, z DOWN, metres). tools/build_scenario.py turns this into .scn XML. Mesh paths are relative to data/coral_reef/.",
+ "frame": "NED",
+ "units": "m, rad",
+ "extent": {
+  "x": [
+   -30,
+   30
+  ],
+  "y": [
+   -30,
+   30
+  ]
+ },
+ "depth": {
+  "seabed_reference_plane_z": 15.0,
+  "shallowest_seabed_z": 11.73,
+  "deepest_seabed_z": 16.69,
+  "note": "Seabed meshes are authored Z-up; placed with rpy=(pi,0,0) at z=15 which flips them into NED."
+ },
+ "suggested_vehicle_spawn": {
+  "xyz": [
+   -24.0,
+   24.0,
+   10.0
+  ],
+  "note": "open sand, kept coral-free within 6 m radius; seabed there is 14.55 m deep, so z=10 is ~4.5 m above the bottom"
+ },
+ "terrain": [
+  {
+   "id": "Seabed",
+   "visual": "meshes/terrain/seabed.obj",
+   "physical": "meshes/terrain/seabed_phy.obj",
+   "look": "reef_sand",
+   "material": "ReefRock",
+   "xyz": [
+    0,
+    0,
+    15.0
+   ],
+   "rpy": [
+    3.141592653589793,
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "visual_tris": 115200,
+   "physical_tris": 12800
+  },
+  {
+   "id": "Rocks",
+   "visual": "meshes/terrain/rocks.obj",
+   "physical": "meshes/terrain/rocks.obj",
+   "look": "reef_rock",
+   "material": "ReefRock",
+   "xyz": [
+    0,
+    0,
+    15.0
+   ],
+   "rpy": [
+    3.141592653589793,
+    0,
+    0
+   ],
+   "scale": 1.0,
+   "visual_tris": 3520,
+   "physical_tris": 3520
+  }
+ ],
+ "looks": {
+  "reef_sand": {
+   "rgb": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "roughness": 0.95,
+   "texture": "textures/sand.png"
+  },
+  "reef_rock": {
+   "rgb": [
+    0.35,
+    0.33,
+    0.3
+   ],
+   "roughness": 0.9
+  }
+ },
+ "materials": {
+  "ReefRock": {
+   "density": 3000.0,
+   "restitution": 0.3
+  },
+  "ReefCoral": {
+   "density": 1500.0,
+   "restitution": 0.2
+  }
+ },
+ "coral_rpy_rule": "coral rpy = [pi, 0, yaw]  (pi roll flips the Z-up mesh into NED)",
+ "models": {
+  "Anemone_A": {
+   "visual": "meshes/corals/Anemone_A.obj",
+   "physical": "meshes/corals/Anemone_A_phy.obj",
+   "rgb": [
+    0.885,
+    0.682,
+    0.653
+   ],
+   "dims_m_at_scale1": [
+    0.895,
+    1.051,
+    0.461
+   ],
+   "visual_tris": 30000,
+   "physical_tris": 1502
+  },
+  "Coral_Antler_A": {
+   "visual": "meshes/corals/Coral_Antler_A.obj",
+   "physical": "meshes/corals/Coral_Antler_A_phy.obj",
+   "rgb": [
+    0.395,
+    0.315,
+    0.21
+   ],
+   "dims_m_at_scale1": [
+    0.491,
+    0.353,
+    0.387
+   ],
+   "visual_tris": 39995,
+   "physical_tris": 1540
+  },
+  "Coral_Antler_B": {
+   "visual": "meshes/corals/Coral_Antler_B.obj",
+   "physical": "meshes/corals/Coral_Antler_B_phy.obj",
+   "rgb": [
+    0.497,
+    0.398,
+    0.29
+   ],
+   "dims_m_at_scale1": [
+    0.587,
+    0.484,
+    0.394
+   ],
+   "visual_tris": 39997,
+   "physical_tris": 1534
+  },
+  "Coral_Antler_C": {
+   "visual": "meshes/corals/Coral_Antler_C.obj",
+   "physical": "meshes/corals/Coral_Antler_C_phy.obj",
+   "rgb": [
+    0.5,
+    0.404,
+    0.307
+   ],
+   "dims_m_at_scale1": [
+    0.569,
+    0.546,
+    0.355
+   ],
+   "visual_tris": 39999,
+   "physical_tris": 1524
+  },
+  "Coral_Antler_D": {
+   "visual": "meshes/corals/Coral_Antler_D.obj",
+   "physical": "meshes/corals/Coral_Antler_D_phy.obj",
+   "rgb": [
+    0.497,
+    0.398,
+    0.29
+   ],
+   "dims_m_at_scale1": [
+    0.525,
+    0.478,
+    0.311
+   ],
+   "visual_tris": 39997,
+   "physical_tris": 1520
+  },
+  "Coral_Antler_E": {
+   "visual": "meshes/corals/Coral_Antler_E.obj",
+   "physical": "meshes/corals/Coral_Antler_E_phy.obj",
+   "rgb": [
+    0.5,
+    0.404,
+    0.307
+   ],
+   "dims_m_at_scale1": [
+    0.501,
+    0.485,
+    0.344
+   ],
+   "visual_tris": 39999,
+   "physical_tris": 1508
+  },
+  "Coral_Blue_A": {
+   "visual": "meshes/corals/Coral_Blue_A.obj",
+   "physical": "meshes/corals/Coral_Blue_A_phy.obj",
+   "rgb": [
+    0.37,
+    0.176,
+    0.087
+   ],
+   "dims_m_at_scale1": [
+    0.901,
+    0.833,
+    0.618
+   ],
+   "visual_tris": 40000,
+   "physical_tris": 1504
+  },
+  "Coral_Blue_B": {
+   "visual": "meshes/corals/Coral_Blue_B.obj",
+   "physical": "meshes/corals/Coral_Blue_B_phy.obj",
+   "rgb": [
+    0.314,
+    0.198,
+    0.145
+   ],
+   "dims_m_at_scale1": [
+    0.419,
+    0.478,
+    0.381
+   ],
+   "visual_tris": 40000,
+   "physical_tris": 1506
+  },
+  "Coral_Bush_A": {
+   "visual": "meshes/corals/Coral_Bush_A.obj",
+   "physical": "meshes/corals/Coral_Bush_A_phy.obj",
+   "rgb": [
+    0.617,
+    0.254,
+    0.354
+   ],
+   "dims_m_at_scale1": [
+    0.48,
+    0.549,
+    0.313
+   ],
+   "visual_tris": 40000,
+   "physical_tris": 1514
+  },
+  "Coral_Bush_B": {
+   "visual": "meshes/corals/Coral_Bush_B.obj",
+   "physical": "meshes/corals/Coral_Bush_B_phy.obj",
+   "rgb": [
+    0.597,
+    0.307,
+    0.354
+   ],
+   "dims_m_at_scale1": [
+    3.079,
+    2.583,
+    1.172
+   ],
+   "visual_tris": 39993,
+   "physical_tris": 1500
+  },
+  "Coral_Bush_C": {
+   "visual": "meshes/corals/Coral_Bush_C.obj",
+   "physical": "meshes/corals/Coral_Bush_C_phy.obj",
+   "rgb": [
+    0.406,
+    0.283,
+    0.39
+   ],
+   "dims_m_at_scale1": [
+    2.062,
+    2.622,
+    1.002
+   ],
+   "visual_tris": 28364,
+   "physical_tris": 1502
+  },
+  "Coral_Bush_D": {
+   "visual": "meshes/corals/Coral_Bush_D.obj",
+   "physical": "meshes/corals/Coral_Bush_D_phy.obj",
+   "rgb": [
+    0.337,
+    0.251,
+    0.313
+   ],
+   "dims_m_at_scale1": [
+    2.377,
+    1.72,
+    1.406
+   ],
+   "visual_tris": 14712,
+   "physical_tris": 1500
+  },
+  "Coral_Bush_E": {
+   "visual": "meshes/corals/Coral_Bush_E.obj",
+   "physical": "meshes/corals/Coral_Bush_E_phy.obj",
+   "rgb": [
+    0.486,
+    0.148,
+    0.381
+   ],
+   "dims_m_at_scale1": [
+    1.74,
+    1.741,
+    1.124
+   ],
+   "visual_tris": 13840,
+   "physical_tris": 1502
+  },
+  "Coral_Clathrata_A": {
+   "visual": "meshes/corals/Coral_Clathrata_A.obj",
+   "physical": "meshes/corals/Coral_Clathrata_A_phy.obj",
+   "rgb": [
+    0.63,
+    0.523,
+    0.448
+   ],
+   "dims_m_at_scale1": [
+    0.474,
+    0.555,
+    0.12
+   ],
+   "visual_tris": 39887,
+   "physical_tris": 1506
+  },
+  "Coral_Clathrata_B": {
+   "visual": "meshes/corals/Coral_Clathrata_B.obj",
+   "physical": "meshes/corals/Coral_Clathrata_B_phy.obj",
+   "rgb": [
+    0.63,
+    0.523,
+    0.448
+   ],
+   "dims_m_at_scale1": [
+    0.255,
+    0.237,
+    0.119
+   ],
+   "visual_tris": 39973,
+   "physical_tris": 1508
+  },
+  "Coral_Clathrata_C": {
+   "visual": "meshes/corals/Coral_Clathrata_C.obj",
+   "physical": "meshes/corals/Coral_Clathrata_C_phy.obj",
+   "rgb": [
+    0.63,
+    0.523,
+    0.448
+   ],
+   "dims_m_at_scale1": [
+    0.175,
+    0.207,
+    0.1
+   ],
+   "visual_tris": 39952,
+   "physical_tris": 1516
+  },
+  "Coral_Plate_A": {
+   "visual": "meshes/corals/Coral_Plate_A.obj",
+   "physical": "meshes/corals/Coral_Plate_A_phy.obj",
+   "rgb": [
+    0.268,
+    0.193,
+    0.072
+   ],
+   "dims_m_at_scale1": [
+    1.542,
+    1.461,
+    0.35
+   ],
+   "visual_tris": 39998,
+   "physical_tris": 1552
+  },
+  "Coral_Plate_B": {
+   "visual": "meshes/corals/Coral_Plate_B.obj",
+   "physical": "meshes/corals/Coral_Plate_B_phy.obj",
+   "rgb": [
+    0.268,
+    0.193,
+    0.072
+   ],
+   "dims_m_at_scale1": [
+    4.326,
+    1.687,
+    0.453
+   ],
+   "visual_tris": 39996,
+   "physical_tris": 2000
+  },
+  "Coral_Plate_C": {
+   "visual": "meshes/corals/Coral_Plate_C.obj",
+   "physical": "meshes/corals/Coral_Plate_C_phy.obj",
+   "rgb": [
+    0.258,
+    0.175,
+    0.062
+   ],
+   "dims_m_at_scale1": [
+    1.762,
+    1.664,
+    0.277
+   ],
+   "visual_tris": 39971,
+   "physical_tris": 1526
+  },
+  "Coral_Plate_D": {
+   "visual": "meshes/corals/Coral_Plate_D.obj",
+   "physical": "meshes/corals/Coral_Plate_D_phy.obj",
+   "rgb": [
+    0.272,
+    0.244,
+    0.109
+   ],
+   "dims_m_at_scale1": [
+    1.83,
+    1.408,
+    0.332
+   ],
+   "visual_tris": 39989,
+   "physical_tris": 1518
+  },
+  "Coral_Plate_E": {
+   "visual": "meshes/corals/Coral_Plate_E.obj",
+   "physical": "meshes/corals/Coral_Plate_E_phy.obj",
+   "rgb": [
+    0.272,
+    0.244,
+    0.109
+   ],
+   "dims_m_at_scale1": [
+    1.976,
+    1.542,
+    0.468
+   ],
+   "visual_tris": 39808,
+   "physical_tris": 1506
+  },
+  "Coral_Plate_F": {
+   "visual": "meshes/corals/Coral_Plate_F.obj",
+   "physical": "meshes/corals/Coral_Plate_F_phy.obj",
+   "rgb": [
+    0.276,
+    0.192,
+    0.065
+   ],
+   "dims_m_at_scale1": [
+    1.728,
+    1.54,
+    0.461
+   ],
+   "visual_tris": 39457,
+   "physical_tris": 1524
+  },
+  "Coral_Plate_G": {
+   "visual": "meshes/corals/Coral_Plate_G.obj",
+   "physical": "meshes/corals/Coral_Plate_G_phy.obj",
+   "rgb": [
+    0.338,
+    0.233,
+    0.072
+   ],
+   "dims_m_at_scale1": [
+    1.671,
+    1.172,
+    0.573
+   ],
+   "visual_tris": 37121,
+   "physical_tris": 1516
+  },
+  "Coral_Plate_H": {
+   "visual": "meshes/corals/Coral_Plate_H.obj",
+   "physical": "meshes/corals/Coral_Plate_H_phy.obj",
+   "rgb": [
+    0.25,
+    0.172,
+    0.065
+   ],
+   "dims_m_at_scale1": [
+    0.745,
+    0.597,
+    0.141
+   ],
+   "visual_tris": 39693,
+   "physical_tris": 1548
+  },
+  "Coral_Soft_A": {
+   "visual": "meshes/corals/Coral_Soft_A.obj",
+   "physical": "meshes/corals/Coral_Soft_A_phy.obj",
+   "rgb": [
+    0.851,
+    0.737,
+    0.477
+   ],
+   "dims_m_at_scale1": [
+    0.896,
+    0.799,
+    0.66
+   ],
+   "visual_tris": 39959,
+   "physical_tris": 1504
+  },
+  "Coral_Soft_B": {
+   "visual": "meshes/corals/Coral_Soft_B.obj",
+   "physical": "meshes/corals/Coral_Soft_B_phy.obj",
+   "rgb": [
+    0.83,
+    0.54,
+    0.452
+   ],
+   "dims_m_at_scale1": [
+    0.881,
+    0.759,
+    1.236
+   ],
+   "visual_tris": 39999,
+   "physical_tris": 1504
+  },
+  "Coral_Staghorn_A": {
+   "visual": "meshes/corals/Coral_Staghorn_A.obj",
+   "physical": "meshes/corals/Coral_Staghorn_A_phy.obj",
+   "rgb": [
+    0.547,
+    0.443,
+    0.251
+   ],
+   "dims_m_at_scale1": [
+    1.34,
+    1.426,
+    1.001
+   ],
+   "visual_tris": 26378,
+   "physical_tris": 1504
+  },
+  "Coral_Staghorn_B": {
+   "visual": "meshes/corals/Coral_Staghorn_B.obj",
+   "physical": "meshes/corals/Coral_Staghorn_B_phy.obj",
+   "rgb": [
+    0.495,
+    0.432,
+    0.27
+   ],
+   "dims_m_at_scale1": [
+    0.913,
+    0.903,
+    0.381
+   ],
+   "visual_tris": 21414,
+   "physical_tris": 1504
+  },
+  "Coral_Staghorn_C": {
+   "visual": "meshes/corals/Coral_Staghorn_C.obj",
+   "physical": "meshes/corals/Coral_Staghorn_C_phy.obj",
+   "rgb": [
+    0.334,
+    0.296,
+    0.18
+   ],
+   "dims_m_at_scale1": [
+    1.345,
+    1.177,
+    0.537
+   ],
+   "visual_tris": 40000,
+   "physical_tris": 1506
+  },
+  "Coral_Staghorn_D": {
+   "visual": "meshes/corals/Coral_Staghorn_D.obj",
+   "physical": "meshes/corals/Coral_Staghorn_D_phy.obj",
+   "rgb": [
+    0.549,
+    0.434,
+    0.249
+   ],
+   "dims_m_at_scale1": [
+    1.928,
+    2.143,
+    1.167
+   ],
+   "visual_tris": 39999,
+   "physical_tris": 1504
+  },
+  "Coral_Table_A": {
+   "visual": "meshes/corals/Coral_Table_A.obj",
+   "physical": "meshes/corals/Coral_Table_A_phy.obj",
+   "rgb": [
+    0.461,
+    0.26,
+    0.206
+   ],
+   "dims_m_at_scale1": [
+    4.189,
+    4.216,
+    1.625
+   ],
+   "visual_tris": 40000,
+   "physical_tris": 1500
+  },
+  "Coral_Table_B": {
+   "visual": "meshes/corals/Coral_Table_B.obj",
+   "physical": "meshes/corals/Coral_Table_B_phy.obj",
+   "rgb": [
+    0.692,
+    0.508,
+    0.437
+   ],
+   "dims_m_at_scale1": [
+    5.141,
+    4.753,
+    2.095
+   ],
+   "visual_tris": 40000,
+   "physical_tris": 1500
+  },
+  "Coral_Table_C": {
+   "visual": "meshes/corals/Coral_Table_C.obj",
+   "physical": "meshes/corals/Coral_Table_C_phy.obj",
+   "rgb": [
+    0.577,
+    0.427,
+    0.228
+   ],
+   "dims_m_at_scale1": [
+    3.379,
+    3.456,
+    1.354
+   ],
+   "visual_tris": 39999,
+   "physical_tris": 1500
+  }
+ },
+ "corals": [
+  {
+   "id": "Coral000",
+   "model": "Anemone_A",
+   "xyz": [
+    -24.486,
+    -22.1109,
+    15.0319
+   ],
+   "yaw": -2.24818,
+   "scale": 0.916,
+   "footprint_radius_m": 0.481,
+   "height_m": 0.422,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral001",
+   "model": "Anemone_A",
+   "xyz": [
+    -7.6899,
+    -1.2074,
+    15.205
+   ],
+   "yaw": 2.00884,
+   "scale": 1.277,
+   "footprint_radius_m": 0.671,
+   "height_m": 0.589,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral002",
+   "model": "Anemone_A",
+   "xyz": [
+    6.1406,
+    -11.6092,
+    14.39
+   ],
+   "yaw": 0.99482,
+   "scale": 1.1501,
+   "footprint_radius_m": 0.604,
+   "height_m": 0.53,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral003",
+   "model": "Coral_Antler_A",
+   "xyz": [
+    5.0675,
+    -7.5013,
+    12.8506
+   ],
+   "yaw": 2.87647,
+   "scale": 1.6633,
+   "footprint_radius_m": 0.408,
+   "height_m": 0.644,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral004",
+   "model": "Coral_Antler_A",
+   "xyz": [
+    16.7146,
+    16.1117,
+    13.9583
+   ],
+   "yaw": -2.66141,
+   "scale": 1.2738,
+   "footprint_radius_m": 0.313,
+   "height_m": 0.493,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral005",
+   "model": "Coral_Antler_A",
+   "xyz": [
+    24.4871,
+    -7.0312,
+    15.6676
+   ],
+   "yaw": 0.10093,
+   "scale": 1.237,
+   "footprint_radius_m": 0.304,
+   "height_m": 0.479,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral006",
+   "model": "Coral_Antler_B",
+   "xyz": [
+    -22.0849,
+    17.8924,
+    14.9425
+   ],
+   "yaw": -1.33929,
+   "scale": 1.2586,
+   "footprint_radius_m": 0.369,
+   "height_m": 0.496,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral007",
+   "model": "Coral_Antler_B",
+   "xyz": [
+    -18.6928,
+    6.7684,
+    15.3358
+   ],
+   "yaw": -2.32181,
+   "scale": 1.9034,
+   "footprint_radius_m": 0.559,
+   "height_m": 0.75,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral008",
+   "model": "Coral_Antler_B",
+   "xyz": [
+    -15.7346,
+    18.5098,
+    14.3461
+   ],
+   "yaw": 2.67623,
+   "scale": 1.8982,
+   "footprint_radius_m": 0.557,
+   "height_m": 0.748,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral009",
+   "model": "Coral_Antler_B",
+   "xyz": [
+    6.107,
+    7.2214,
+    14.3526
+   ],
+   "yaw": -0.46547,
+   "scale": 1.5206,
+   "footprint_radius_m": 0.446,
+   "height_m": 0.599,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral010",
+   "model": "Coral_Antler_B",
+   "xyz": [
+    6.4361,
+    -9.7389,
+    13.6096
+   ],
+   "yaw": -2.56679,
+   "scale": 1.3252,
+   "footprint_radius_m": 0.389,
+   "height_m": 0.522,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral011",
+   "model": "Coral_Antler_C",
+   "xyz": [
+    -24.614,
+    -20.0776,
+    14.6495
+   ],
+   "yaw": -1.48746,
+   "scale": 1.9406,
+   "footprint_radius_m": 0.552,
+   "height_m": 0.689,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral012",
+   "model": "Coral_Antler_C",
+   "xyz": [
+    -18.2405,
+    -3.5512,
+    15.1004
+   ],
+   "yaw": -1.58637,
+   "scale": 1.9724,
+   "footprint_radius_m": 0.561,
+   "height_m": 0.7,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral013",
+   "model": "Coral_Antler_C",
+   "xyz": [
+    -16.7102,
+    -22.3685,
+    16.6161
+   ],
+   "yaw": -0.15574,
+   "scale": 1.9051,
+   "footprint_radius_m": 0.542,
+   "height_m": 0.676,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral014",
+   "model": "Coral_Antler_C",
+   "xyz": [
+    8.2666,
+    4.1396,
+    13.4018
+   ],
+   "yaw": 0.09231,
+   "scale": 1.5032,
+   "footprint_radius_m": 0.428,
+   "height_m": 0.534,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral015",
+   "model": "Coral_Antler_C",
+   "xyz": [
+    8.3814,
+    10.9252,
+    14.1553
+   ],
+   "yaw": 0.22786,
+   "scale": 1.6847,
+   "footprint_radius_m": 0.479,
+   "height_m": 0.598,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral016",
+   "model": "Coral_Antler_D",
+   "xyz": [
+    -14.8544,
+    -4.4429,
+    15.2117
+   ],
+   "yaw": -1.21004,
+   "scale": 1.2965,
+   "footprint_radius_m": 0.34,
+   "height_m": 0.403,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral017",
+   "model": "Coral_Antler_D",
+   "xyz": [
+    -6.2845,
+    -0.9119,
+    14.8315
+   ],
+   "yaw": -2.50694,
+   "scale": 1.7704,
+   "footprint_radius_m": 0.465,
+   "height_m": 0.551,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral018",
+   "model": "Coral_Antler_D",
+   "xyz": [
+    -2.9395,
+    -10.8593,
+    14.8377
+   ],
+   "yaw": 2.9136,
+   "scale": 1.3533,
+   "footprint_radius_m": 0.355,
+   "height_m": 0.421,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral019",
+   "model": "Coral_Antler_D",
+   "xyz": [
+    9.1669,
+    -6.4273,
+    13.6559
+   ],
+   "yaw": -0.19737,
+   "scale": 1.2539,
+   "footprint_radius_m": 0.329,
+   "height_m": 0.39,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral020",
+   "model": "Coral_Antler_D",
+   "xyz": [
+    15.6054,
+    19.4013,
+    13.89
+   ],
+   "yaw": 0.92418,
+   "scale": 1.75,
+   "footprint_radius_m": 0.459,
+   "height_m": 0.544,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral021",
+   "model": "Coral_Antler_E",
+   "xyz": [
+    -1.4713,
+    -9.2742,
+    14.3015
+   ],
+   "yaw": -1.34609,
+   "scale": 1.7352,
+   "footprint_radius_m": 0.435,
+   "height_m": 0.597,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral022",
+   "model": "Coral_Antler_E",
+   "xyz": [
+    12.2609,
+    -24.114,
+    16.0573
+   ],
+   "yaw": 3.0825,
+   "scale": 1.4809,
+   "footprint_radius_m": 0.371,
+   "height_m": 0.509,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral023",
+   "model": "Coral_Antler_E",
+   "xyz": [
+    17.5914,
+    -18.5124,
+    15.543
+   ],
+   "yaw": 2.53482,
+   "scale": 1.2306,
+   "footprint_radius_m": 0.308,
+   "height_m": 0.423,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral024",
+   "model": "Coral_Blue_A",
+   "xyz": [
+    -6.4076,
+    -7.6217,
+    14.7366
+   ],
+   "yaw": 2.24467,
+   "scale": 0.9108,
+   "footprint_radius_m": 0.41,
+   "height_m": 0.563,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral025",
+   "model": "Coral_Blue_A",
+   "xyz": [
+    -1.5211,
+    2.212,
+    14.5574
+   ],
+   "yaw": -1.66429,
+   "scale": 1.0835,
+   "footprint_radius_m": 0.488,
+   "height_m": 0.67,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral026",
+   "model": "Coral_Blue_A",
+   "xyz": [
+    5.1673,
+    -3.966,
+    12.8968
+   ],
+   "yaw": 2.0076,
+   "scale": 0.964,
+   "footprint_radius_m": 0.434,
+   "height_m": 0.596,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral027",
+   "model": "Coral_Blue_A",
+   "xyz": [
+    17.5892,
+    20.2491,
+    14.2657
+   ],
+   "yaw": 0.76575,
+   "scale": 0.9414,
+   "footprint_radius_m": 0.424,
+   "height_m": 0.582,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral028",
+   "model": "Coral_Blue_A",
+   "xyz": [
+    19.2607,
+    -6.2342,
+    15.5647
+   ],
+   "yaw": -2.77582,
+   "scale": 1.0289,
+   "footprint_radius_m": 0.464,
+   "height_m": 0.636,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral029",
+   "model": "Coral_Blue_B",
+   "xyz": [
+    -22.3802,
+    -11.7665,
+    15.7256
+   ],
+   "yaw": 0.728,
+   "scale": 1.8241,
+   "footprint_radius_m": 0.436,
+   "height_m": 0.695,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral030",
+   "model": "Coral_Blue_B",
+   "xyz": [
+    -6.575,
+    4.7796,
+    15.7914
+   ],
+   "yaw": 1.07626,
+   "scale": 1.7085,
+   "footprint_radius_m": 0.408,
+   "height_m": 0.651,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral031",
+   "model": "Coral_Blue_B",
+   "xyz": [
+    12.544,
+    -13.8214,
+    14.7982
+   ],
+   "yaw": -0.72471,
+   "scale": 1.9514,
+   "footprint_radius_m": 0.466,
+   "height_m": 0.743,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral032",
+   "model": "Coral_Bush_A",
+   "xyz": [
+    -13.1224,
+    -10.9135,
+    14.9733
+   ],
+   "yaw": 0.30659,
+   "scale": 1.4226,
+   "footprint_radius_m": 0.391,
+   "height_m": 0.445,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral033",
+   "model": "Coral_Bush_A",
+   "xyz": [
+    -3.325,
+    19.2469,
+    14.4971
+   ],
+   "yaw": 0.61069,
+   "scale": 1.7419,
+   "footprint_radius_m": 0.478,
+   "height_m": 0.545,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral034",
+   "model": "Coral_Bush_A",
+   "xyz": [
+    9.4139,
+    -14.1265,
+    13.9134
+   ],
+   "yaw": 0.29261,
+   "scale": 1.8828,
+   "footprint_radius_m": 0.517,
+   "height_m": 0.589,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral035",
+   "model": "Coral_Bush_B",
+   "xyz": [
+    0.2256,
+    5.1844,
+    14.4088
+   ],
+   "yaw": 2.58072,
+   "scale": 0.8772,
+   "footprint_radius_m": 1.35,
+   "height_m": 1.028,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral036",
+   "model": "Coral_Bush_B",
+   "xyz": [
+    1.8101,
+    -5.0758,
+    12.2676
+   ],
+   "yaw": 0.16892,
+   "scale": 0.9877,
+   "footprint_radius_m": 1.521,
+   "height_m": 1.158,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral037",
+   "model": "Coral_Bush_C",
+   "xyz": [
+    -6.4456,
+    25.2855,
+    13.6018
+   ],
+   "yaw": -0.72662,
+   "scale": 1.1445,
+   "footprint_radius_m": 1.5,
+   "height_m": 1.147,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral038",
+   "model": "Coral_Bush_C",
+   "xyz": [
+    6.5942,
+    -3.8703,
+    12.8167
+   ],
+   "yaw": 2.75678,
+   "scale": 1.0107,
+   "footprint_radius_m": 1.325,
+   "height_m": 1.013,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral039",
+   "model": "Coral_Bush_C",
+   "xyz": [
+    8.8824,
+    -8.1671,
+    13.6072
+   ],
+   "yaw": -2.65101,
+   "scale": 0.8304,
+   "footprint_radius_m": 1.089,
+   "height_m": 0.832,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral040",
+   "model": "Coral_Bush_D",
+   "xyz": [
+    15.8091,
+    -15.0787,
+    15.1171
+   ],
+   "yaw": 1.1891,
+   "scale": 1.1024,
+   "footprint_radius_m": 1.31,
+   "height_m": 1.55,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral041",
+   "model": "Coral_Bush_E",
+   "xyz": [
+    -23.1821,
+    16.4256,
+    14.8702
+   ],
+   "yaw": -2.63407,
+   "scale": 1.1478,
+   "footprint_radius_m": 0.999,
+   "height_m": 1.29,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral042",
+   "model": "Coral_Bush_E",
+   "xyz": [
+    -7.4962,
+    -12.8653,
+    15.6963
+   ],
+   "yaw": -2.05682,
+   "scale": 1.0041,
+   "footprint_radius_m": 0.874,
+   "height_m": 1.129,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral043",
+   "model": "Coral_Bush_E",
+   "xyz": [
+    -3.9167,
+    23.5236,
+    14.2663
+   ],
+   "yaw": -0.01063,
+   "scale": 1.1835,
+   "footprint_radius_m": 1.03,
+   "height_m": 1.33,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral044",
+   "model": "Coral_Bush_E",
+   "xyz": [
+    -1.828,
+    8.921,
+    14.9478
+   ],
+   "yaw": -2.69158,
+   "scale": 1.0389,
+   "footprint_radius_m": 0.904,
+   "height_m": 1.168,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral045",
+   "model": "Coral_Bush_E",
+   "xyz": [
+    2.7784,
+    1.7222,
+    12.866
+   ],
+   "yaw": -2.52059,
+   "scale": 1.222,
+   "footprint_radius_m": 1.064,
+   "height_m": 1.374,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral046",
+   "model": "Coral_Clathrata_A",
+   "xyz": [
+    -24.9638,
+    -5.561,
+    15.1341
+   ],
+   "yaw": -1.72535,
+   "scale": 1.7014,
+   "footprint_radius_m": 0.472,
+   "height_m": 0.204,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral047",
+   "model": "Coral_Clathrata_A",
+   "xyz": [
+    -21.4951,
+    3.5245,
+    15.573
+   ],
+   "yaw": 0.07607,
+   "scale": 1.7341,
+   "footprint_radius_m": 0.481,
+   "height_m": 0.208,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral048",
+   "model": "Coral_Clathrata_A",
+   "xyz": [
+    -14.508,
+    -12.4209,
+    15.7746
+   ],
+   "yaw": 2.89392,
+   "scale": 1.2155,
+   "footprint_radius_m": 0.337,
+   "height_m": 0.146,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral049",
+   "model": "Coral_Clathrata_A",
+   "xyz": [
+    -6.8933,
+    8.4723,
+    15.1065
+   ],
+   "yaw": 1.09494,
+   "scale": 1.5719,
+   "footprint_radius_m": 0.436,
+   "height_m": 0.189,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral050",
+   "model": "Coral_Clathrata_A",
+   "xyz": [
+    1.1554,
+    -11.8144,
+    13.9929
+   ],
+   "yaw": 1.90637,
+   "scale": 1.4282,
+   "footprint_radius_m": 0.396,
+   "height_m": 0.171,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral051",
+   "model": "Coral_Clathrata_A",
+   "xyz": [
+    2.999,
+    -14.2223,
+    14.8137
+   ],
+   "yaw": -2.11196,
+   "scale": 1.2232,
+   "footprint_radius_m": 0.339,
+   "height_m": 0.147,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral052",
+   "model": "Coral_Clathrata_A",
+   "xyz": [
+    4.7267,
+    -6.3037,
+    12.7233
+   ],
+   "yaw": 0.48214,
+   "scale": 1.3998,
+   "footprint_radius_m": 0.388,
+   "height_m": 0.168,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral053",
+   "model": "Coral_Clathrata_A",
+   "xyz": [
+    19.3838,
+    -0.1185,
+    15.1008
+   ],
+   "yaw": 2.32625,
+   "scale": 1.5316,
+   "footprint_radius_m": 0.425,
+   "height_m": 0.184,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral054",
+   "model": "Coral_Clathrata_A",
+   "xyz": [
+    25.9639,
+    -9.3949,
+    15.62
+   ],
+   "yaw": -0.92722,
+   "scale": 1.5197,
+   "footprint_radius_m": 0.422,
+   "height_m": 0.182,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral055",
+   "model": "Coral_Clathrata_B",
+   "xyz": [
+    -24.8724,
+    4.4626,
+    14.9775
+   ],
+   "yaw": -1.00002,
+   "scale": 1.5567,
+   "footprint_radius_m": 0.198,
+   "height_m": 0.185,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral056",
+   "model": "Coral_Clathrata_B",
+   "xyz": [
+    -8.4291,
+    24.1556,
+    14.3201
+   ],
+   "yaw": -1.9093,
+   "scale": 1.867,
+   "footprint_radius_m": 0.238,
+   "height_m": 0.222,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral057",
+   "model": "Coral_Clathrata_B",
+   "xyz": [
+    -6.6947,
+    -6.2461,
+    14.6293
+   ],
+   "yaw": 2.18564,
+   "scale": 1.2783,
+   "footprint_radius_m": 0.163,
+   "height_m": 0.152,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral058",
+   "model": "Coral_Clathrata_B",
+   "xyz": [
+    -4.2053,
+    -27.316,
+    15.5425
+   ],
+   "yaw": 0.3513,
+   "scale": 1.4337,
+   "footprint_radius_m": 0.183,
+   "height_m": 0.171,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral059",
+   "model": "Coral_Clathrata_B",
+   "xyz": [
+    -0.887,
+    2.3858,
+    14.3595
+   ],
+   "yaw": -1.55764,
+   "scale": 1.5612,
+   "footprint_radius_m": 0.199,
+   "height_m": 0.186,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral060",
+   "model": "Coral_Clathrata_B",
+   "xyz": [
+    -0.3395,
+    -2.5365,
+    13.1426
+   ],
+   "yaw": -1.16757,
+   "scale": 1.2641,
+   "footprint_radius_m": 0.161,
+   "height_m": 0.15,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral061",
+   "model": "Coral_Clathrata_B",
+   "xyz": [
+    1.6508,
+    -16.4259,
+    14.9124
+   ],
+   "yaw": 0.64207,
+   "scale": 1.8399,
+   "footprint_radius_m": 0.235,
+   "height_m": 0.219,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral062",
+   "model": "Coral_Clathrata_B",
+   "xyz": [
+    3.3345,
+    -3.5678,
+    12.5063
+   ],
+   "yaw": -1.38367,
+   "scale": 1.3841,
+   "footprint_radius_m": 0.176,
+   "height_m": 0.165,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral063",
+   "model": "Coral_Clathrata_B",
+   "xyz": [
+    19.5762,
+    10.3681,
+    14.9308
+   ],
+   "yaw": 2.7589,
+   "scale": 1.7645,
+   "footprint_radius_m": 0.225,
+   "height_m": 0.21,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral064",
+   "model": "Coral_Clathrata_C",
+   "xyz": [
+    -17.7371,
+    -5.6998,
+    14.9141
+   ],
+   "yaw": -1.91876,
+   "scale": 1.992,
+   "footprint_radius_m": 0.206,
+   "height_m": 0.199,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral065",
+   "model": "Coral_Clathrata_C",
+   "xyz": [
+    1.9696,
+    -0.6093,
+    11.9778
+   ],
+   "yaw": 0.50651,
+   "scale": 1.5814,
+   "footprint_radius_m": 0.164,
+   "height_m": 0.158,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral066",
+   "model": "Coral_Clathrata_C",
+   "xyz": [
+    1.9759,
+    21.7129,
+    14.2197
+   ],
+   "yaw": 2.99977,
+   "scale": 1.3805,
+   "footprint_radius_m": 0.143,
+   "height_m": 0.138,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral067",
+   "model": "Coral_Clathrata_C",
+   "xyz": [
+    5.6927,
+    -9.2555,
+    13.5388
+   ],
+   "yaw": -1.33077,
+   "scale": 1.5385,
+   "footprint_radius_m": 0.159,
+   "height_m": 0.154,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral068",
+   "model": "Coral_Clathrata_C",
+   "xyz": [
+    8.518,
+    -10.1462,
+    13.807
+   ],
+   "yaw": -1.5268,
+   "scale": 1.661,
+   "footprint_radius_m": 0.172,
+   "height_m": 0.166,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral069",
+   "model": "Coral_Plate_A",
+   "xyz": [
+    2.1588,
+    -10.4908,
+    13.5429
+   ],
+   "yaw": -2.69193,
+   "scale": 1.1988,
+   "footprint_radius_m": 0.924,
+   "height_m": 0.42,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral070",
+   "model": "Coral_Plate_A",
+   "xyz": [
+    4.1342,
+    -22.9188,
+    15.5152
+   ],
+   "yaw": -2.31862,
+   "scale": 1.1656,
+   "footprint_radius_m": 0.899,
+   "height_m": 0.408,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral071",
+   "model": "Coral_Plate_A",
+   "xyz": [
+    8.5975,
+    3.296,
+    13.1989
+   ],
+   "yaw": -1.51344,
+   "scale": 0.9958,
+   "footprint_radius_m": 0.768,
+   "height_m": 0.349,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral072",
+   "model": "Coral_Plate_C",
+   "xyz": [
+    -5.659,
+    2.1888,
+    15.2787
+   ],
+   "yaw": -2.63931,
+   "scale": 0.9051,
+   "footprint_radius_m": 0.797,
+   "height_m": 0.251,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral073",
+   "model": "Coral_Plate_C",
+   "xyz": [
+    5.8965,
+    -24.305,
+    15.4081
+   ],
+   "yaw": 2.53743,
+   "scale": 1.0119,
+   "footprint_radius_m": 0.891,
+   "height_m": 0.28,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral074",
+   "model": "Coral_Plate_D",
+   "xyz": [
+    1.4714,
+    1.0076,
+    12.5221
+   ],
+   "yaw": 0.46878,
+   "scale": 1.008,
+   "footprint_radius_m": 0.922,
+   "height_m": 0.335,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral075",
+   "model": "Coral_Plate_D",
+   "xyz": [
+    3.7387,
+    -15.3225,
+    15.0362
+   ],
+   "yaw": 1.44642,
+   "scale": 1.0558,
+   "footprint_radius_m": 0.966,
+   "height_m": 0.351,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral076",
+   "model": "Coral_Plate_D",
+   "xyz": [
+    7.5278,
+    -16.1827,
+    14.3977
+   ],
+   "yaw": 2.87386,
+   "scale": 1.063,
+   "footprint_radius_m": 0.973,
+   "height_m": 0.353,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral077",
+   "model": "Coral_Plate_E",
+   "xyz": [
+    -23.3578,
+    -3.5352,
+    15.0864
+   ],
+   "yaw": -0.58467,
+   "scale": 1.2172,
+   "footprint_radius_m": 1.203,
+   "height_m": 0.57,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral078",
+   "model": "Coral_Plate_E",
+   "xyz": [
+    -22.2196,
+    5.0334,
+    15.4834
+   ],
+   "yaw": -1.56576,
+   "scale": 0.9201,
+   "footprint_radius_m": 0.909,
+   "height_m": 0.431,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral079",
+   "model": "Coral_Plate_E",
+   "xyz": [
+    -7.9851,
+    14.1412,
+    15.1486
+   ],
+   "yaw": -1.14253,
+   "scale": 1.2404,
+   "footprint_radius_m": 1.225,
+   "height_m": 0.58,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral080",
+   "model": "Coral_Plate_F",
+   "xyz": [
+    15.2264,
+    14.2792,
+    14.2594
+   ],
+   "yaw": -0.53792,
+   "scale": 1.2792,
+   "footprint_radius_m": 1.105,
+   "height_m": 0.59,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral081",
+   "model": "Coral_Plate_G",
+   "xyz": [
+    10.7413,
+    -6.8605,
+    14.0272
+   ],
+   "yaw": -1.97718,
+   "scale": 1.2505,
+   "footprint_radius_m": 1.045,
+   "height_m": 0.717,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral082",
+   "model": "Coral_Plate_H",
+   "xyz": [
+    -6.6872,
+    -9.9981,
+    15.1905
+   ],
+   "yaw": 0.26838,
+   "scale": 1.2549,
+   "footprint_radius_m": 0.467,
+   "height_m": 0.177,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral083",
+   "model": "Coral_Plate_H",
+   "xyz": [
+    -4.7299,
+    18.3255,
+    14.3219
+   ],
+   "yaw": 2.36778,
+   "scale": 1.9366,
+   "footprint_radius_m": 0.721,
+   "height_m": 0.273,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral084",
+   "model": "Coral_Plate_H",
+   "xyz": [
+    9.6199,
+    -5.6986,
+    13.6763
+   ],
+   "yaw": -2.52974,
+   "scale": 1.2787,
+   "footprint_radius_m": 0.476,
+   "height_m": 0.18,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral085",
+   "model": "Coral_Soft_A",
+   "xyz": [
+    -2.1223,
+    23.9582,
+    14.7328
+   ],
+   "yaw": 1.65224,
+   "scale": 1.2761,
+   "footprint_radius_m": 0.572,
+   "height_m": 0.842,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral086",
+   "model": "Coral_Soft_A",
+   "xyz": [
+    -0.5588,
+    -1.8474,
+    13.3911
+   ],
+   "yaw": -0.43488,
+   "scale": 1.0944,
+   "footprint_radius_m": 0.49,
+   "height_m": 0.722,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral087",
+   "model": "Coral_Soft_A",
+   "xyz": [
+    10.4958,
+    -3.1733,
+    13.6908
+   ],
+   "yaw": 3.13791,
+   "scale": 1.0054,
+   "footprint_radius_m": 0.45,
+   "height_m": 0.664,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral088",
+   "model": "Coral_Soft_A",
+   "xyz": [
+    19.4384,
+    9.8378,
+    14.9586
+   ],
+   "yaw": -1.71121,
+   "scale": 1.1213,
+   "footprint_radius_m": 0.502,
+   "height_m": 0.74,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral089",
+   "model": "Coral_Soft_B",
+   "xyz": [
+    -21.1039,
+    18.0276,
+    14.9334
+   ],
+   "yaw": -0.05853,
+   "scale": 1.2743,
+   "footprint_radius_m": 0.561,
+   "height_m": 1.575,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral090",
+   "model": "Coral_Soft_B",
+   "xyz": [
+    21.7841,
+    0.3916,
+    14.8304
+   ],
+   "yaw": 1.28161,
+   "scale": 1.2605,
+   "footprint_radius_m": 0.555,
+   "height_m": 1.558,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral091",
+   "model": "Coral_Staghorn_A",
+   "xyz": [
+    -19.3631,
+    3.7072,
+    15.3842
+   ],
+   "yaw": -1.37502,
+   "scale": 1.2114,
+   "footprint_radius_m": 0.864,
+   "height_m": 1.213,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral092",
+   "model": "Coral_Staghorn_A",
+   "xyz": [
+    2.7446,
+    -8.3277,
+    12.9009
+   ],
+   "yaw": 0.83891,
+   "scale": 1.2421,
+   "footprint_radius_m": 0.886,
+   "height_m": 1.243,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral093",
+   "model": "Coral_Staghorn_A",
+   "xyz": [
+    10.293,
+    1.9367,
+    13.5385
+   ],
+   "yaw": -1.36951,
+   "scale": 1.1256,
+   "footprint_radius_m": 0.803,
+   "height_m": 1.127,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral094",
+   "model": "Coral_Staghorn_A",
+   "xyz": [
+    14.4164,
+    -24.5062,
+    15.3888
+   ],
+   "yaw": -0.24331,
+   "scale": 1.053,
+   "footprint_radius_m": 0.751,
+   "height_m": 1.054,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral095",
+   "model": "Coral_Staghorn_B",
+   "xyz": [
+    -15.4987,
+    5.4125,
+    15.9852
+   ],
+   "yaw": -2.21049,
+   "scale": 1.6403,
+   "footprint_radius_m": 0.749,
+   "height_m": 0.625,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral096",
+   "model": "Coral_Staghorn_B",
+   "xyz": [
+    -14.239,
+    8.2551,
+    15.6944
+   ],
+   "yaw": 0.10145,
+   "scale": 1.442,
+   "footprint_radius_m": 0.658,
+   "height_m": 0.549,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral097",
+   "model": "Coral_Staghorn_B",
+   "xyz": [
+    -3.9514,
+    8.4616,
+    15.0688
+   ],
+   "yaw": 2.19624,
+   "scale": 1.6174,
+   "footprint_radius_m": 0.738,
+   "height_m": 0.616,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral098",
+   "model": "Coral_Staghorn_B",
+   "xyz": [
+    4.0846,
+    -19.0507,
+    14.8841
+   ],
+   "yaw": 1.50666,
+   "scale": 1.6717,
+   "footprint_radius_m": 0.763,
+   "height_m": 0.637,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral099",
+   "model": "Coral_Staghorn_B",
+   "xyz": [
+    11.4146,
+    8.5514,
+    14.6879
+   ],
+   "yaw": 0.94064,
+   "scale": 1.818,
+   "footprint_radius_m": 0.83,
+   "height_m": 0.693,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral100",
+   "model": "Coral_Staghorn_B",
+   "xyz": [
+    13.0378,
+    7.9811,
+    14.7862
+   ],
+   "yaw": 2.56292,
+   "scale": 1.3587,
+   "footprint_radius_m": 0.62,
+   "height_m": 0.518,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral101",
+   "model": "Coral_Staghorn_C",
+   "xyz": [
+    -14.1099,
+    -20.0125,
+    16.028
+   ],
+   "yaw": 1.03927,
+   "scale": 1.1182,
+   "footprint_radius_m": 0.752,
+   "height_m": 0.6,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral102",
+   "model": "Coral_Staghorn_C",
+   "xyz": [
+    -3.2068,
+    0.0148,
+    14.2511
+   ],
+   "yaw": -0.5712,
+   "scale": 1.1038,
+   "footprint_radius_m": 0.742,
+   "height_m": 0.593,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral103",
+   "model": "Coral_Staghorn_C",
+   "xyz": [
+    2.5825,
+    5.7318,
+    13.9312
+   ],
+   "yaw": 0.33396,
+   "scale": 1.1639,
+   "footprint_radius_m": 0.783,
+   "height_m": 0.625,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral104",
+   "model": "Coral_Staghorn_D",
+   "xyz": [
+    10.1534,
+    11.7669,
+    14.447
+   ],
+   "yaw": 2.37922,
+   "scale": 1.2357,
+   "footprint_radius_m": 1.324,
+   "height_m": 1.442,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral105",
+   "model": "Coral_Staghorn_D",
+   "xyz": [
+    17.4978,
+    -13.738,
+    15.4562
+   ],
+   "yaw": -1.21347,
+   "scale": 0.9095,
+   "footprint_radius_m": 0.974,
+   "height_m": 1.061,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral106",
+   "model": "Coral_Staghorn_D",
+   "xyz": [
+    22.4884,
+    -13.6187,
+    15.5568
+   ],
+   "yaw": 2.70271,
+   "scale": 1.2002,
+   "footprint_radius_m": 1.286,
+   "height_m": 1.401,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral107",
+   "model": "Coral_Table_B",
+   "xyz": [
+    -10.8292,
+    -4.9334,
+    15.4513
+   ],
+   "yaw": 2.92719,
+   "scale": 1.1433,
+   "footprint_radius_m": 2.939,
+   "height_m": 2.395,
+   "zone": "patch_or_sand"
+  },
+  {
+   "id": "Coral108",
+   "model": "Coral_Table_B",
+   "xyz": [
+    -2.6604,
+    -5.4633,
+    13.9781
+   ],
+   "yaw": -2.11489,
+   "scale": 1.135,
+   "footprint_radius_m": 2.918,
+   "height_m": 2.378,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral109",
+   "model": "Coral_Table_B",
+   "xyz": [
+    6.5221,
+    0.9641,
+    12.6541
+   ],
+   "yaw": -0.28792,
+   "scale": 1.0466,
+   "footprint_radius_m": 2.69,
+   "height_m": 2.193,
+   "zone": "reef_mound"
+  },
+  {
+   "id": "Coral110",
+   "model": "Coral_Table_C",
+   "xyz": [
+    0.9875,
+    -1.7851,
+    12.0921
+   ],
+   "yaw": -0.87674,
+   "scale": 0.8857,
+   "footprint_radius_m": 1.531,
+   "height_m": 1.199,
+   "zone": "reef_mound"
+  }
+ ],
+ "reef_mound_centre": {
+  "xyz": [
+   2.0,
+   -3.0,
+   11.82
+  ],
+  "radius_m": 10,
+  "note": "highest point of the seabed; densest coral"
+ }
+}
