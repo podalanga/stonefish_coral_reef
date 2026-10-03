@@ -113,7 +113,7 @@
     0.461
    ],
    "visual_tris": 30000,
-   "physical_tris": 1502
+   "physical_tris": 3000
   },
   "Coral_Antler_A": {
    "visual": "meshes/corals/Coral_Antler_A.obj",
@@ -129,7 +129,7 @@
     0.387
    ],
    "visual_tris": 39995,
-   "physical_tris": 1540
+   "physical_tris": 3000
   },
   "Coral_Antler_B": {
    "visual": "meshes/corals/Coral_Antler_B.obj",
@@ -145,7 +145,7 @@
     0.394
    ],
    "visual_tris": 39997,
-   "physical_tris": 1534
+   "physical_tris": 2999
   },
   "Coral_Antler_C": {
    "visual": "meshes/corals/Coral_Antler_C.obj",
@@ -161,7 +161,7 @@
     0.355
    ],
    "visual_tris": 39999,
-   "physical_tris": 1524
+   "physical_tris": 2999
   },
   "Coral_Antler_D": {
    "visual": "meshes/corals/Coral_Antler_D.obj",
@@ -177,7 +177,7 @@
     0.311
    ],
    "visual_tris": 39997,
-   "physical_tris": 1520
+   "physical_tris": 3000
   },
   "Coral_Antler_E": {
    "visual": "meshes/corals/Coral_Antler_E.obj",
@@ -193,7 +193,7 @@
     0.344
    ],
    "visual_tris": 39999,
-   "physical_tris": 1508
+   "physical_tris": 3000
   },
   "Coral_Blue_A": {
    "visual": "meshes/corals/Coral_Blue_A.obj",
@@ -209,7 +209,7 @@
     0.618
    ],
    "visual_tris": 40000,
-   "physical_tris": 1504
+   "physical_tris": 3000
   },
   "Coral_Blue_B": {
    "visual": "meshes/corals/Coral_Blue_B.obj",
@@ -225,7 +225,7 @@
     0.381
    ],
    "visual_tris": 40000,
-   "physical_tris": 1506
+   "physical_tris": 3000
   },
   "Coral_Bush_A": {
    "visual": "meshes/corals/Coral_Bush_A.obj",
@@ -241,7 +241,7 @@
     0.313
    ],
    "visual_tris": 40000,
-   "physical_tris": 1514
+   "physical_tris": 2999
   },
   "Coral_Bush_B": {
    "visual": "meshes/corals/Coral_Bush_B.obj",
@@ -257,7 +257,7 @@
     1.172
    ],
    "visual_tris": 39993,
-   "physical_tris": 1500
+   "physical_tris": 3000
   },
   "Coral_Bush_C": {
    "visual": "meshes/corals/Coral_Bush_C.obj",
@@ -273,7 +273,7 @@
     1.002
    ],
    "visual_tris": 28364,
-   "physical_tris": 1502
+   "physical_tris": 2999
   },
   "Coral_Bush_D": {
    "visual": "meshes/corals/Coral_Bush_D.obj",
@@ -289,7 +289,7 @@
     1.406
    ],
    "visual_tris": 14712,
-   "physical_tris": 1500
+   "physical_tris": 3000
   },
   "Coral_Bush_E": {
    "visual": "meshes/corals/Coral_Bush_E.obj",
@@ -305,7 +305,7 @@
     1.124
    ],
    "visual_tris": 13840,
-   "physical_tris": 1502
+   "physical_tris": 2999
   },
   "Coral_Clathrata_A": {
    "visual": "meshes/corals/Coral_Clathrata_A.obj",
@@ -321,7 +321,7 @@
     0.12
    ],
    "visual_tris": 39887,
-   "physical_tris": 1506
+   "physical_tris": 3000
   },
   "Coral_Clathrata_B": {
    "visual": "meshes/corals/Coral_Clathrata_B.obj",
@@ -337,7 +337,7 @@
     0.119
    ],
    "visual_tris": 39973,
-   "physical_tris": 1508
+   "physical_tris": 3000
   },
   "Coral_Clathrata_C": {
    "visual": "meshes/corals/Coral_Clathrata_C.obj",
@@ -353,7 +353,7 @@
     0.1
    ],
    "visual_tris": 39952,
-   "physical_tris": 1516
+   "physical_tris": 3000
   },
   "Coral_Plate_A": {
    "visual": "meshes/corals/Coral_Plate_A.obj",
@@ -369,7 +369,7 @@
     0.35
    ],
    "visual_tris": 39998,
-   "physical_tris": 1552
+   "physical_tris": 3000
   },
   "Coral_Plate_B": {
    "visual": "meshes/corals/Coral_Plate_B.obj",
@@ -385,7 +385,7 @@
     0.453
    ],
    "visual_tris": 39996,
-   "physical_tris": 2000
+   "physical_tris": 3000
   },
   "Coral_Plate_C": {
    "visual": "meshes/corals/Coral_Plate_C.obj",
@@ -401,7 +401,7 @@
     0.277
    ],
    "visual_tris": 39971,
-   "physical_tris": 1526
+   "physical_tris": 3000
   },
   "Coral_Plate_D": {
    "visual": "meshes/corals/Coral_Plate_D.obj",
@@ -417,7 +417,7 @@
     0.332
    ],
    "visual_tris": 39989,
-   "physical_tris": 1518
+   "physical_tris": 3000
   },
   "Coral_Plate_E": {
    "visual": "meshes/corals/Coral_Plate_E.obj",
@@ -433,7 +433,7 @@
     0.468
    ],
    "visual_tris": 39808,
-   "physical_tris": 1506
+   "physical_tris": 6000
   },
   "Coral_Plate_F": {
    "visual": "meshes/corals/Coral_Plate_F.obj",
@@ -449,7 +449,7 @@
     0.461
    ],
    "visual_tris": 39457,
-   "physical_tris": 1524
+   "physical_tris": 3000
   },
   "Coral_Plate_G": {
    "visual": "meshes/corals/Coral_Plate_G.obj",
@@ -465,7 +465,7 @@
     0.573
    ],
    "visual_tris": 37121,
-   "physical_tris": 1516
+   "physical_tris": 3000
   },
   "Coral_Plate_H": {
    "visual": "meshes/corals/Coral_Plate_H.obj",
@@ -481,7 +481,7 @@
     0.141
    ],
    "visual_tris": 39693,
-   "physical_tris": 1548
+   "physical_tris": 3000
   },
   "Coral_Soft_A": {
    "visual": "meshes/corals/Coral_Soft_A.obj",
@@ -497,7 +497,7 @@
     0.66
    ],
    "visual_tris": 39959,
-   "physical_tris": 1504
+   "physical_tris": 6000
   },
   "Coral_Soft_B": {
    "visual": "meshes/corals/Coral_Soft_B.obj",
@@ -513,7 +513,7 @@
     1.236
    ],
    "visual_tris": 39999,
-   "physical_tris": 1504
+   "physical_tris": 2999
   },
   "Coral_Staghorn_A": {
    "visual": "meshes/corals/Coral_Staghorn_A.obj",
@@ -529,7 +529,7 @@
     1.001
    ],
    "visual_tris": 26378,
-   "physical_tris": 1504
+   "physical_tris": 3000
   },
   "Coral_Staghorn_B": {
    "visual": "meshes/corals/Coral_Staghorn_B.obj",
@@ -545,7 +545,7 @@
     0.381
    ],
    "visual_tris": 21414,
-   "physical_tris": 1504
+   "physical_tris": 3000
   },
   "Coral_Staghorn_C": {
    "visual": "meshes/corals/Coral_Staghorn_C.obj",
@@ -561,7 +561,7 @@
     0.537
    ],
    "visual_tris": 40000,
-   "physical_tris": 1506
+   "physical_tris": 2999
   },
   "Coral_Staghorn_D": {
    "visual": "meshes/corals/Coral_Staghorn_D.obj",
@@ -577,7 +577,7 @@
     1.167
    ],
    "visual_tris": 39999,
-   "physical_tris": 1504
+   "physical_tris": 3000
   },
   "Coral_Table_A": {
    "visual": "meshes/corals/Coral_Table_A.obj",
@@ -593,7 +593,7 @@
     1.625
    ],
    "visual_tris": 40000,
-   "physical_tris": 1500
+   "physical_tris": 3000
   },
   "Coral_Table_B": {
    "visual": "meshes/corals/Coral_Table_B.obj",
@@ -609,7 +609,7 @@
     2.095
    ],
    "visual_tris": 40000,
-   "physical_tris": 1500
+   "physical_tris": 3000
   },
   "Coral_Table_C": {
    "visual": "meshes/corals/Coral_Table_C.obj",
@@ -625,7 +625,7 @@
     1.354
    ],
    "visual_tris": 39999,
-   "physical_tris": 1500
+   "physical_tris": 2998
   }
  },
  "corals": [

@@ -22,7 +22,7 @@ Common options (standalone/fragment/merge)
   --scale K          uniformly scale the whole reef by K (terrain, corals, positions) about the
                      seabed reference point (0, 0, 15); K=0.5 halves it, so the ROV looks 2x bigger
   --zone Z           keep only corals in zone Z (reef_mound | patch_or_sand); repeatable
-  --lowpoly          use the ~1.5k-tri collision mesh as the coral VISUAL too (big GPU saving)
+  --lowpoly          use the ~3k-tri collision mesh as the coral VISUAL too (big GPU saving)
   --no-corals        terrain (seabed + rocks) only
   --name-prefix STR  prefix for every static/look/material name (default "")
 

@@ -32,7 +32,7 @@ Preview images are in `docs/`: perspective, close-up, and top-down views.
 | **Zones** | `reef_mound`: 41 dense corals around (2, −3); `patch_or_sand`: 70 scattered on sand |
 | **Collision** | Every coral and rock has a collision mesh—vehicles physically collide |
 | **Vehicle spawn** | `xyz = −24 24 10` (NED): open sand, no obstacles, seabed at 14.55 m |
-| **Performance** | Visual ≈ 4.16 M triangles (0.29 M with `--lowpoly`); physics ≈ 0.18 M triangles |
+| **Performance** | Visual ≈ 4.16 M triangles (0.47 M with `--lowpoly`); physics ≈ 0.37 M triangles |
 
 ---
 
@@ -51,6 +51,7 @@ stonefish_coral_reef/
 │   └── textures/sand.png
 ├── config/reef_layout.json        ← single source of truth (all placements)
 ├── tools/build_scenario.py        ← build/merge/check scenarios
+├── tools/make_collision_meshes.py ← regenerate *_phy.obj from visual meshes (Blender)
 └── docs/preview_*.png
 ```
 
@@ -238,15 +239,15 @@ Or use `merge` to apply changes to an existing scenario.
 
 | Model | Size (m) | Visual tris | Collision tris | Instances |
 |-------|----------|-------------|----------------|-----------|
-| Anemone_A | 0.90 × 1.05 × 0.46 | 30,000 | 1,502 | 3 |
-| Coral_Antler_A–E | 0.49–0.59 × 0.35–0.55 × 0.31–0.39 | ~40k | ~1.5k | 21 total |
-| Coral_Blue_A–B | 0.42–0.90 × 0.48–0.83 × 0.38–0.62 | 40,000 | ~1.5k | 8 |
-| Coral_Bush_A–E | 0.48–3.08 × 0.55–2.62 × 0.31–1.41 | 13.8k–40k | ~1.5k | 14 |
-| Coral_Clathrata_A–C | 0.17–0.47 × 0.21–0.56 × 0.10–0.12 | ~40k | ~1.5k | 23 |
-| Coral_Plate_A–H | 0.74–4.33 × 0.60–1.69 × 0.14–0.47 | 37k–40k | ~1.5k | 16 |
-| Coral_Soft_A–B | 0.88–0.90 × 0.76–0.80 × 0.66–1.24 | 40,000 | 1,504 | 6 |
-| Coral_Staghorn_A–D | 0.91–1.93 × 0.90–2.14 × 0.38–1.17 | 21k–40k | 1,504 | 16 |
-| Coral_Table_A–C | 3.38–5.14 × 3.46–4.75 × 1.35–2.10 | 40,000 | 1,500 | 4 |
+| Anemone_A | 0.90 × 1.05 × 0.46 | 30,000 | 3,000 | 3 |
+| Coral_Antler_A–E | 0.49–0.59 × 0.35–0.55 × 0.31–0.39 | ~40k | 3,000 | 21 total |
+| Coral_Blue_A–B | 0.42–0.90 × 0.48–0.83 × 0.38–0.62 | 40,000 | 3,000 | 8 |
+| Coral_Bush_A–E | 0.48–3.08 × 0.55–2.62 × 0.31–1.41 | 13.8k–40k | 3,000 | 14 |
+| Coral_Clathrata_A–C | 0.17–0.47 × 0.21–0.56 × 0.10–0.12 | ~40k | 3,000 | 23 |
+| Coral_Plate_A–H | 0.74–4.33 × 0.60–1.69 × 0.14–0.47 | 37k–40k | 3,000 (E: 6,000) | 16 |
+| Coral_Soft_A–B | 0.88–0.90 × 0.76–0.80 × 0.66–1.24 | 40,000 | 3,000 (A: 6,000) | 6 |
+| Coral_Staghorn_A–D | 0.91–1.93 × 0.90–2.14 × 0.38–1.17 | 21k–40k | 3,000 | 16 |
+| Coral_Table_A–C | 3.38–5.14 × 3.46–4.75 × 1.35–2.10 | 40,000 | 3,000 | 4 |
 
 Corals render as solid colours (averaged from original textures, no UVs applied).
 
@@ -271,7 +272,7 @@ Corals render as solid colours (averaged from original textures, no UVs applied)
 
 ✗ **Not verified**: scenarios have not been loaded in a running Stonefish instance. Version-specific details (launch argument names, path resolution) may need tuning (see Integration Guide).
 
-**Limitations**: corals are static (no swaying); solid colours only; no fauna; collision meshes are voxel hulls (gaps < 1/40 of coral size treated as solid).
+**Limitations**: corals are static (no swaying); solid colours only; no fauna; collision meshes follow branches and plates closely, but dense blade fields (Clathrata, Table) are solid envelopes.
 
 ---
 
@@ -283,7 +284,7 @@ All 33 coral models were **procedurally generated** from reference images of rea
 
 1. **Image acquisition**: reference photographs and photogrammetry scans of actual coral specimens
 2. **Procedural generation**: 3D mesh synthesis using parametric coral growth algorithms to recreate morphology (branching patterns, polyp distribution, surface textures)
-3. **Optimization**: visual meshes simplifed for rendering; collision meshes voxelized for physics simulation
+3. **Optimization**: visual meshes simplifed for rendering; collision meshes decimated from the visual meshes (voxel-remeshed first for non-manifold or blade-field models; see `tools/make_collision_meshes.py`)
 4. **Validation**: coral sizes, heights, and proportions verified against biological data
 
 This approach ensures models are **structurally and visually representative** of real coral species while remaining lightweight for simulation.
