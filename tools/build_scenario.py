@@ -23,6 +23,13 @@ Common options (standalone/fragment/merge)
                      seabed reference point (0, 0, 15); K=0.5 halves it, so the ROV looks 2x bigger
   --zone Z           keep only corals in zone Z (reef_mound | patch_or_sand); repeatable
   --lowpoly          use the ~3k-tri collision mesh as the coral VISUAL too (big GPU saving)
+  --vivid            saturate the coral colours and pre-compensate them for the red the water absorbs,
+                     so corals keep their hue at depth instead of rendering grey-green
+                     (same as --saturation 1.8 --min-value 0.65 --colour-gain 5 1.5 1)
+  --saturation K     multiply the HSV saturation of every coral colour by K (capped at 0.9)
+  --min-value V      raise the HSV value (brightness) of every coral colour to at least V
+  --colour-gain R G B  multiply the coral rgb by these factors; values above 1 are allowed and
+                     make up for absorption over the light path (red is absorbed first)
   --no-corals        terrain (seabed + rocks) only
   --name-prefix STR  prefix for every static/look/material name (default "")
 
@@ -32,7 +39,7 @@ Examples
   python3 tools/build_scenario.py merge --into my_world.scn -o my_world_reef.scn \
           --prefix '$(find my_pkg)/data/coral_reef/'
 """
-import argparse, json, math, os, random, sys
+import argparse, colorsys, json, math, os, random, sys
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
@@ -166,6 +173,16 @@ def material_defs(L, np):
     return [(np + n, m) for n, m in L["materials"].items()]
 
 
+def coral_rgb(rgb, a):
+    """Coral colour as written to the scene: saturated, brightened and gained as asked."""
+    saturation, min_value, gain = a.saturation, a.min_value, a.colour_gain
+    if a.vivid:
+        saturation, min_value, gain = saturation or 1.8, min_value or 0.65, gain or [5.0, 1.5, 1.0]
+    h, s, v = colorsys.rgb_to_hsv(*rgb)
+    rgb = colorsys.hsv_to_rgb(h, min(max(s, 0.9), s * (saturation or 1.0)), max(v, min_value or 0.0))
+    return [c * g for c, g in zip(rgb, gain or [1.0, 1.0, 1.0])]
+
+
 def look_defs(L, corals, a):
     np, pre = a.name_prefix, a.prefix
     out = []
@@ -176,7 +193,7 @@ def look_defs(L, corals, a):
         out.append(attrs)
     for m in sorted({c["model"] for c in corals}):
         md = L["models"][m]
-        out.append({"name": np + m, "rgb": vec(md["rgb"]), "roughness": "0.85"})
+        out.append({"name": np + m, "rgb": vec(coral_rgb(md["rgb"], a)), "roughness": "0.85"})
     return out
 
 
@@ -384,6 +401,11 @@ def main():
         p.add_argument("--scale", type=float, default=1.0, help="uniform reef scale factor (default 1.0)")
         p.add_argument("--zone", action="append", choices=["reef_mound", "patch_or_sand"])
         p.add_argument("--lowpoly", action="store_true")
+        p.add_argument("--vivid", action="store_true",
+                       help="saturated, absorption-compensated coral colours (keeps hue at depth)")
+        p.add_argument("--saturation", type=float)
+        p.add_argument("--min-value", type=float)
+        p.add_argument("--colour-gain", nargs=3, type=float, metavar=("R", "G", "B"))
         p.add_argument("--no-corals", action="store_true")
         p.add_argument("--name-prefix", default="")
     a = ap.parse_args()

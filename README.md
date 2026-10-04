@@ -251,6 +251,12 @@ Or use `merge` to apply changes to an existing scenario.
 
 Corals render as solid colours (averaged from original textures, no UVs applied).
 
+At depth the simulator's water absorbs red over the light path, so these muted colours render
+grey-green a few metres from the camera. `--vivid` writes saturated colours with the red channel
+gained above 1 to make up for that, which keeps each model's hue visible. Fine-tune with
+`--saturation`, `--min-value` and `--colour-gain R G B`. A light on the vehicle is still needed
+below about 10 m.
+
 ---
 
 ## Troubleshooting
